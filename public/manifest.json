@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Julio To-Do",
+  "version": "0.0.1",
+  "description": "Julio Capybara te ayudará a guardar tus tareas y te recordará cuándo hacerlas",
+  "background": {
+    "service_worker": "./background.js"
+  },
+  "permissions": [],
+  "author": "Kedatech | Eliseo Arévalo",
+  "homepage_url": "https://github.com/kedatech/addon-todo",
+  "short_name": "JulioTodo",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Julio To-Do",
+    "default_icon": {
+      "16": "/icons/logo16.png",
+      "32": "/icons/logo32.png",
+      "48": "/icons/logo48.png",
+      "128": "/icons/logo128.png"
+    }
+  },
+  "icons": {
+    "16": "/icons/logo16.png",
+    "32": "/icons/logo32.png",
+    "48": "/icons/logo48.png",
+    "128": "/icons/logo128.png"
+  }
+}
