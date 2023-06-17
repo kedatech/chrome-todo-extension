@@ -1,10 +1,9 @@
-import { DndContext, closestCenter } from '@dnd-kit/core'
+import { DndContext, closestCenter, DragEndEvent } from '@dnd-kit/core'
 import { SortableContext, verticalListSortingStrategy as vertical } from '@dnd-kit/sortable'
 import { userStore} from '../../../shared/utils/listStore'
 
-export function DragAndDrop({children}:{children:React.ReactNode}) {
+export function DragAndDrop({children, handleDragEnd}:{children:React.ReactNode, handleDragEnd:(event: DragEndEvent) => void  }) {
   const { elements } = userStore()
-  const handleDragEnd = () => {return}
 
   return (
     <div>

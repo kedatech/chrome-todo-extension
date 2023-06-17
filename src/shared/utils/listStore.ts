@@ -10,8 +10,15 @@ export const userStore = create<List>((set) => ({
   elements: [
     {
       id:1,
-      title:"string",
-      description:"string",
+      title:"titulo generico",
+      description:"string generico",
+      timeEnd: new Date("2023-06-17T09:00:00"),
+      state:"string"
+    },
+    {
+      id:2,
+      title:"otra cosa",
+      description:"de ejemplo claro",
       timeEnd: new Date("2023-06-17T09:00:00"),
       state:"string"
     }
