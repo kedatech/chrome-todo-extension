@@ -1,25 +1,26 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { userStore } from './shared/utils/userStore'
 import Login from './views/login';
 import App from './views/app';
 
 function Popup() {
-  const [user, setUser] = useState<string>("");
-
+  const { userName, setUserName} = userStore()
+  console.log(userName)
   useEffect(() => {
-    const queryUser = localStorage.getItem("user-julio-todo");
-    if (queryUser) {
-      setUser(queryUser);
+    const queryUser : string | null = localStorage.getItem("user-julio-todo");
+    if (queryUser !== null) {
+      setUserName(queryUser);
     }
   }, []);
 
   return (
-    
-      <Routes>
-        <Route path="/" element={user ? <App /> : <Navigate to="/login" />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    
+    <>
+      {
+        userName === ""
+        ?<Login />
+        : <App />
+      }
+    </>
   );
 }
 
