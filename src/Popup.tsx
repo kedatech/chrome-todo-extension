@@ -11,7 +11,7 @@ function Popup() {
     if (queryUser !== null) {
       setUserName(queryUser);
     }
-  }, []);
+  }, [setUserName]);
 
   return (
     <>
