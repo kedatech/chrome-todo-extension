@@ -6,22 +6,21 @@ interface List {
   setElements: (arr: Task[]) => void;
 }
 
+const getStorage = ():Task[] => {
+  const item = localStorage.getItem("task-julio-todo")
+  const list:Task[] = item !== null ? JSON.parse(item) : []
+  return list;
+}
+
+const setStorage = (tasks:Task[]):void => {
+  const item = JSON.stringify(tasks)
+  localStorage.setItem("task-julio-todo",item)
+}
+
 export const userStore = create<List>((set) => ({
-  elements: [
-    {
-      id:1,
-      title:"titulo generico",
-      description:"string generico",
-      timeEnd: new Date("2023-06-17T09:00:00"),
-      state:"string"
-    },
-    {
-      id:2,
-      title:"otra cosa",
-      description:"de ejemplo claro",
-      timeEnd: new Date("2023-06-17T09:00:00"),
-      state:"string"
-    }
-  ],
-  setElements: (arr) => set({ elements: arr }),
+  elements: getStorage(),
+  setElements: (arr) => {
+    setStorage(arr)
+    set({ elements: getStorage() })
+  },
 }));
