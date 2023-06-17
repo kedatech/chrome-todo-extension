@@ -1,16 +1,19 @@
-import { DndContext, closestCenter } from '@dnd-kit/core'
+import { DragAndDrop } from './_DragAndDrop'
+import { userStore } from '../../../shared/utils/listStore'
+import Task from './_Task'
 export function List() {
 
-  const handleDragEnd = () => {return}
+  const { elements } = userStore()
 
   return (
     <div>
-      <DndContext
-        collisionDetection={closestCenter}
-        onDragEnd={handleDragEnd}
-      >
-
-      </DndContext>
+      <DragAndDrop>
+        {
+          elements.map( el =>(
+            <Task task={el} key={el.id}/>
+          ))
+        }
+      </DragAndDrop>
     </div>
   )
 }
