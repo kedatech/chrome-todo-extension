@@ -1,8 +1,10 @@
+@use "./shared//scss/normalize.min.css";
 body{
   width: 350px;
   background: #222;
   color: #eee;
   font-family: sans-serif;
+  padding: 1em;
 }
 html{
   background: #fff;
