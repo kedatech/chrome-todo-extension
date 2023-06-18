@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik';
 import { object, string, date } from 'yup';
+import css from './styles/Form.module.scss'
+import { listStore } from '../../../shared/utils/listStore'
 
 const taskSchema = object({
   title: string().required('El título es requerido'),
@@ -9,7 +11,8 @@ const taskSchema = object({
 });
 
 export function Form() {
-  const [submitting, setSubmitting] = useState(false);
+  const { setElements, elements } = listStore()
+  const navigate = useNavigate()
 
   const formik = useFormik({
     initialValues: {
@@ -18,12 +21,23 @@ export function Form() {
       timeEnd: ''
     },
     validationSchema: taskSchema,
-    onSubmit: (values) => {
-      setSubmitting(true);
-      // TODO: GUARDAR
-      console.log(values);
-      setSubmitting(false);
+    onSubmit: (values, { resetForm }) => {
+      const ids = elements.map((el) => Number(el.id));
+      const max = ids.length > 0 ? Math.max(...ids) : 0;
+      setElements([
+        ...elements,
+        {
+          id: max + 1,
+          title: values.title,
+          description: values.description,
+          timeEnd: new Date(values.timeEnd),
+          lapsed: false
+        }
+      ]);
+      resetForm();
+      navigate("/list")
     }
+    
   });
 
   const {
@@ -32,12 +46,11 @@ export function Form() {
     values,
     errors,
     touched,
-    isSubmitting
   } = formik;
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form className={css.formTask} onSubmit={handleSubmit}>
+      <div className={css.containerInput}>
         <label htmlFor="title">Título:</label>
         {errors.title && touched.title && <div>{errors.title}</div>}
         <input
@@ -48,18 +61,19 @@ export function Form() {
           onChange={handleChange}
         />
       </div>
-      <div>
+      <div className={css.containerInput}>
       {errors.description && touched.description && <div>{errors.description}</div>}
         <label htmlFor="description">Descripción:</label>
-        <textarea
+        <input
+          type='text'
           id="description"
           name="description"
           value={values.description}
           onChange={handleChange}
         />
       </div>
-      <div>
-        <label htmlFor="timeEnd">Fecha de finalización:</label>
+      <div className={css.containerInput}>
+        <label htmlFor="timeEnd">Finalización:</label>
         <input
           type="datetime-local"
           id="timeEnd"
@@ -69,8 +83,8 @@ export function Form() {
         />
         {errors.timeEnd && touched.timeEnd && <div>{errors.timeEnd}</div>}
       </div>
-      <button type="submit" disabled={isSubmitting || submitting}>
-        Enviar
+      <button type="submit" >
+        Agregar
       </button>
     </form>
   );

@@ -1,0 +1,24 @@
+.formTask{
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: .7em;
+
+  button{
+    padding: 6px 0;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+}
+
+.containerInput{
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+
+  input{
+    background: #ffffff1e;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+}

@@ -2,11 +2,11 @@ import { DragAndDrop  } from './_DragAndDrop'
 import { DragEndEvent } from '@dnd-kit/core'
 import { arrayMove } from '@dnd-kit/sortable'
 
-import { userStore } from '../../../shared/utils/listStore'
+import { listStore } from '../../../shared/utils/listStore'
 import Task from './_Task'
 export function List() {
 
-  const { elements, setElements} = userStore()
+  const { elements, setElements} = listStore()
 
   const handleDragEnd = (e:DragEndEvent) => {
 

@@ -17,7 +17,7 @@ const setStorage = (tasks:Task[]):void => {
   localStorage.setItem("task-julio-todo",item)
 }
 
-export const userStore = create<List>((set) => ({
+export const listStore = create<List>((set) => ({
   elements: getStorage(),
   setElements: (arr) => {
     setStorage(arr)
