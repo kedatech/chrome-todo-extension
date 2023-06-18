@@ -1,8 +1,6 @@
-import { useState } from 'react'
 import { Config, Form, Header, List } from './components'
 import { Routes, Route, Navigate} from 'react-router-dom'
 function App() {
-  const [view, setView] = useState("form")
   return (
     <div>
       <Header />

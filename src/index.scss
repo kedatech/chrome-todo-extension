@@ -1,10 +1,12 @@
 @use "./shared//scss/normalize.min.css";
 body{
-  width: 350px;
+  width: 450px;
+  min-height: 200px;
+  max-height: 70vh;
   background: #222;
   color: #eee;
   font-family: sans-serif;
-  padding: 1em;
+  padding: 0 1em 1em;
 }
 html{
   background: #fff;

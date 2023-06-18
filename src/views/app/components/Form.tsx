@@ -5,9 +5,9 @@ import css from './styles/Form.module.scss'
 import { listStore } from '../../../shared/utils/listStore'
 
 const taskSchema = object({
-  title: string().required('El título es requerido'),
-  description: string().required('La descripción es requerida'),
-  timeEnd: date().default(() => new Date())
+  title: string().required('Falta el titulo 😪'),
+  description: string().required('También este, llenalo!!'),
+  timeEnd: date().required('Falta la fecha 🥺')
 });
 
 export function Form() {
@@ -52,7 +52,7 @@ export function Form() {
     <form className={css.formTask} onSubmit={handleSubmit}>
       <div className={css.containerInput}>
         <label htmlFor="title">Título:</label>
-        {errors.title && touched.title && <div>{errors.title}</div>}
+        {errors.title && touched.title && <div className={css.e}>{errors.title}</div>}
         <input
           type="text"
           id="title"
@@ -62,8 +62,8 @@ export function Form() {
         />
       </div>
       <div className={css.containerInput}>
-      {errors.description && touched.description && <div>{errors.description}</div>}
         <label htmlFor="description">Descripción:</label>
+        {errors.description && touched.description && <div className={css.e}>{errors.description}</div>}
         <input
           type='text'
           id="description"
@@ -74,6 +74,7 @@ export function Form() {
       </div>
       <div className={css.containerInput}>
         <label htmlFor="timeEnd">Finalización:</label>
+        {errors.timeEnd && touched.timeEnd && <div className={css.e}>{errors.timeEnd}</div>}
         <input
           type="datetime-local"
           id="timeEnd"
@@ -81,7 +82,6 @@ export function Form() {
           value={values.timeEnd}
           onChange={handleChange}
         />
-        {errors.timeEnd && touched.timeEnd && <div>{errors.timeEnd}</div>}
       </div>
       <button type="submit" >
         Agregar

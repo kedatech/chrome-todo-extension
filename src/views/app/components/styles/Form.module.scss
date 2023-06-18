@@ -8,17 +8,33 @@
     padding: 6px 0;
     font-weight: bold;
     border-radius: 5px;
+    cursor: pointer;
+
+    &:hover{
+      transform: scale(.99);
+      opacity: .7;
+    }
   }
 }
 
 .containerInput{
+  position: relative;
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns:1fr;
   align-items: center;
+  margin-top: 9px;
 
   input{
     background: #ffffff1e;
     padding: 5px 10px;
     border-radius: 5px;
   }
+}
+
+
+.e{
+  color: rgb(255, 81, 81);
+  top:0px;
+  right: 0;
+  position: absolute;
 }

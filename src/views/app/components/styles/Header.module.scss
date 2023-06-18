@@ -1,0 +1,24 @@
+.header{
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+
+  a{
+    color: #ccc ;
+    margin-right: 5px;
+    text-decoration: none;
+
+    &.active{
+      color: rgb(185, 255, 80);
+      
+    }
+  }
+}
+
+.logo{
+  width: 30px;
+  height: 30px;
+  background: url(/public/icons/logo32.png);
+}
+
