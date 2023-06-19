@@ -1,15 +1,11 @@
-@use "./shared//scss/normalize.min.css";
+@use "./shared/scss/normalize.min.css";
 body{
   width: 450px;
   min-height: 200px;
-  max-height: 70vh;
   background: #222;
   color: #eee;
   font-family: sans-serif;
   padding: 0 1em 1em;
-}
-html{
-  background: #fff;
 }
 input{
   padding: 10px 5px;

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { redirect } from 'react-router-dom'
 import css from './login.module.scss'
 import { userStore } from '../../shared/utils/userStore'
 
@@ -20,7 +19,6 @@ function Login() {
     }
     localStorage.setItem("user-julio-todo", write)
     setUserName(write)
-    return redirect("/")
   }
   return (
     <div className={css.saludo}>

@@ -1,0 +1,75 @@
+.task{
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  margin: 0;
+  
+  border: .1px solid rgba(185, 255, 80, 0.397);
+  background: rgba(185, 255, 80, 0.253);
+  border-radius: 5px;
+  margin-bottom: 5px;
+
+  h2,p{
+    margin: 0;
+  }
+  h2{
+    overflow-X: scroll;
+    font-size: 1.3rem;
+    scrollbar-color: transparent transparent;
+    &::-webkit-scrollbar {
+      width: 8px; /* Ancho del scroll */
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent; /* Color del scroll */
+      border-radius: 4px; /* Borde del scroll */
+    }
+    
+    &::-webkit-scrollbar-track {
+      background-color: transparent; /* Color del fondo del scroll */
+    }
+  }
+
+  .info{
+    padding:5px 10px 0px 10px;
+    overflow-x: hidden;
+  }
+
+  .btns{
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+
+    button{
+      background: transparent;
+      height: 100%;
+      cursor: pointer;
+      &:hover{
+        &:first-child{
+          svg{
+            color: rgba(185, 255, 80, 0.836);
+          }
+        }
+        &:nth-child(2){
+          svg{
+            color: rgba(80, 170, 255, 0.836);
+          }
+        }
+        &:last-child{
+          svg{
+            color:rgb(255, 119, 119);
+          }
+        }
+      }
+      svg{
+        font-size: 1.56rem;
+        // color: #fff;
+      }
+    }
+  }
+}
+
+
+.complete{
+  opacity: .7;
+  background: #00000044;
+}

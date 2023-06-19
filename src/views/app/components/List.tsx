@@ -1,6 +1,7 @@
 import { DragAndDrop  } from './_DragAndDrop'
 import { DragEndEvent } from '@dnd-kit/core'
 import { arrayMove } from '@dnd-kit/sortable'
+import css from './styles/List.module.scss'
 
 import { listStore } from '../../../shared/utils/listStore'
 import Task from './_Task'
@@ -18,7 +19,7 @@ export function List() {
     return
   }
   return (
-    <div>
+    <div className={css.list}>
       <DragAndDrop handleDragEnd={handleDragEnd}>
         {
           elements.map( el =>(

@@ -16,7 +16,7 @@ function Popup() {
   return (
     <>
       {
-        userName === ""
+        userName === null
         ?<Login />
         : <App />
       }
