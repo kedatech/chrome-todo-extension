@@ -3,12 +3,14 @@ import { DragEndEvent } from '@dnd-kit/core'
 import { arrayMove } from '@dnd-kit/sortable'
 import css from './styles/List.module.scss'
 
-import { listStore } from '../../../shared/utils/listStore'
+import { listStore } from '../../../shared/utils/store/listStore'
+import { read } from '../../../shared/utils/useCrud'
 import Task from './_Task'
 export function List() {
 
-  const { elements, setElements} = listStore()
+  const { setElements} = listStore()
 
+  const elements = read()
   const handleDragEnd = (e:DragEndEvent) => {
 
     const {active, over} = e

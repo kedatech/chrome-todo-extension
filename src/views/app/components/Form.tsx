@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik';
 import { object, string, date } from 'yup';
 import css from './styles/Form.module.scss'
-import { listStore } from '../../../shared/utils/listStore'
+import { listStore } from '../../../shared/utils/store/listStore'
 
 const taskSchema = object({
   title: string().required('Falta el titulo 😪'),
@@ -31,7 +31,8 @@ export function Form() {
           title: values.title,
           description: values.description,
           timeEnd: new Date(values.timeEnd),
-          lapsed: false
+          lapsed: false,
+          check: false
         }
       ]);
       resetForm();

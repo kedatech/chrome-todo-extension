@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { userStore } from './shared/utils/userStore'
+import { userStore } from './shared/utils/store/userStore'
 import Login from './views/login';
 import App from './views/app';
 

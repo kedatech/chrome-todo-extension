@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import css from './login.module.scss'
-import { userStore } from '../../shared/utils/userStore'
+import { userStore } from '../../shared/utils/store/userStore'
 
 function Login() {
   const [write, setWrite] = useState("")

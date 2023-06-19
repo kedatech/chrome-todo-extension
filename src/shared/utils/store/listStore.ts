@@ -1,5 +1,5 @@
 import create from 'zustand';
-import Task from '../interfaces/Task'
+import Task from '../../interfaces/Task'
 
 interface List {
   elements: Task[]
@@ -12,7 +12,7 @@ const getStorage = ():Task[] => {
   return list;
 }
 
-const setStorage = (tasks:Task[]):void => {
+export const setStorage = (tasks:Task[]):void => {
   const item = JSON.stringify(tasks)
   localStorage.setItem("task-julio-todo",item)
 }
